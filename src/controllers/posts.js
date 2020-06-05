@@ -1,60 +1,3 @@
-// const { Posts, Users, Comments } = require('../models/db')
-
-// async function createPosts(title, content, authorId) {
-//     if (typeof title !== 'string' || title.length < 1) {
-//         throw new Error('Title empty or undefined')
-//     }
-//     if (typeof content !== 'string' || content.length < 1) {
-//         throw new Error('Content empty or undefined')
-//     }
-//     if (typeof authorId !== 'number') {
-//         throw new Error('Author of post not defined')
-//     }
-//     try {
-//         return await Posts.create({
-//             title,
-//             content,
-//             authorId
-//         })
-//     } catch (e) {
-//         throw e
-//     }
-// }
-
-// async function fetchPosts() {
-//     try {
-//         return await Posts.findAll({
-//             include: [
-//                 { model: Users, as: 'author', attributes: ['username'] }
-//             ]
-//         })
-//     } catch (e) {
-//         throw (e)
-//     }
-// }
-
-// async function fetchPostsById(postId) {
-//     try {
-//         return await Posts.findById(postId, {
-//             // include: [{
-//             //     model: Comments,
-//             include: [{
-//                     model: Users,
-//                     attributes: ['username']
-//                 }]
-//                 // }]
-//         })
-//     } catch (e) {
-//         throw e
-//     }
-// }
-
-// module.exports = {
-//     createPosts,
-//     fetchPosts,
-//     fetchPostsById
-// }
-
 const { Posts, Users } = require('../db/models')
 
 async function createNewPost(userId, title, body) {
@@ -67,17 +10,14 @@ async function createNewPost(userId, title, body) {
     return post
 }
 
-// /**
-//  * showAllPosts({username: ''})
-//  * showAllPosts({title: ''})
-//  */
+/**
+ * showAllPosts({username: ''})
+ * showAllPosts({title: ''})
+ */
 async function findAllPosts(query) {
-    let where = {}
-    if (query.userId) { where.userId = query.userId }
-
+    // TODO: Handle query params
     const posts = await Posts.findAll({
-        include: [Users],
-        where
+        include: [Users]
     })
 
     return posts

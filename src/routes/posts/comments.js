@@ -1,7 +1,9 @@
 const { Router } = require('express')
 const { Comments } = require('../../db/models')
 const { createComment } = require('../../controllers/comments')
+
 const route = Router()
+
 route.post("/", async(req, res) => {
     try {
         let { user_id, post_id, comment_body } = req.body;
