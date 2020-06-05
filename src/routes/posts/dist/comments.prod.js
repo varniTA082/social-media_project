@@ -1,0 +1,1 @@
+"use strict";var _require=require("express"),Router=_require.Router,commentsRoute=Router();module.exports={commentsRoute:commentsRoute};

@@ -1,0 +1,1 @@
+"use strict";var navlinks=$(".navbar-nav .nav-link");navlinks.click(function(n){var a="/components/".concat($(n.target).attr("data-component"),".html");$("#content").load(a)});
