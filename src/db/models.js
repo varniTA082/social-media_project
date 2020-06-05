@@ -54,6 +54,7 @@ Posts.hasMany(Comments)
 Comments.belongsTo(Posts)
 
 
+
 module.exports = {
     db,
     Users,

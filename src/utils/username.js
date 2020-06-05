@@ -29,8 +29,3 @@ function genRandomUsername() {
 module.exports = {
     genRandomUsername
 }
-
-
-
-console.log(genRandomUsername())
-console.log(genRandomUsername())

@@ -17,7 +17,7 @@ app.use('posts/comments', commentsRoute)
 db.sync()
     .then(() => {
         app.listen(8383, () => {
-            console.log('server started on http://localhost:8384')
+            console.log('server started on http://localhost:8383')
         })
     })
     .catch((err) => {
