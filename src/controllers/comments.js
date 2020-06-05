@@ -29,5 +29,5 @@ async function createComment(user_id, post_id, comment_body) {
     }
 }
 module.exports = {
-    createComment
-}
+    createComment,
+};
