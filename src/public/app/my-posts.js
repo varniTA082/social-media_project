@@ -18,8 +18,7 @@ function loadMyPosts() {
                 <a href="#" class="card-link">Like</a>
               </div>
             </div>
-          </div>
-          
+          </div> 
           `)
             )
         }
