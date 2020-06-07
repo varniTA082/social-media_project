@@ -21,6 +21,6 @@ db.sync()
         })
     })
     .catch((err) => {
-        console.error(new Error('Could not start database'))
+        console.error(new Error('Trouble starting the database database'))
         console.error(err)
     })
