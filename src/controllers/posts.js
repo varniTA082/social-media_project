@@ -23,9 +23,12 @@ async function findAllPosts(query) {
     return posts
 }
 
+
+
 module.exports = {
     createNewPost,
-    findAllPosts
+    findAllPosts,
+
 }
 
 /* Test Code */

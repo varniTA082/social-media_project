@@ -1,36 +1,28 @@
-# Social Media Sample Project
+Social Media Sample Project
+Database Setup
 
-
-## Database Setup
-
-```shell
 $ mysql -u root
-```
 
-```mysql
-create database socialmediadb;
+create database cbsocialmediadb;
 
-create user socialuser identified with mysql_native_password by 'socialpass';
+create user cbsocialuser identified with mysql_native_password by 'cbsocialpass';
 
-grant all privileges on socialmediadb.*  to socialuser;
+grant all privileges on cbsocialmediadb.*  to cbsocialuser;
 
 flush privileges;
-```
 
-## Project Structure
+Project Structure
+Backend (Server)
 
-### Backend (Server)
-```shell
 src
-├── controllers         # functions to connect routes to db operations
-├── db                  # db connection and model definitions
-├── public              # html/js/css files for static part of site
-└── routes              # express middlewares (route wise)
-```
+├───controllers		# functions to connect routes to db operations
+├───db			# db connection and model definitions
+├───public		# html/js/css files for static part of site
+├───routes		# express middlewares (route wise)				
+└───utils		# username generation function
 
-### Frontend (Client Side Code)
+Frontend (Client Side Code)
 
-```shell
 src/public
 ├── app                                     # our own frontend js code
 │   └── common.js
@@ -42,77 +34,64 @@ src/public
 │   ├── Muli-Italic.woff2
 │   ├── Muli.woff2
 │   └── muli.css
-├── index.html                              # first / home page
+├── index.html                              # first home page
 └── js                                      # js libraries we are using
     ├── bootstrap.js
     ├── jquery-3.4.1.js
     └── popper.js
 
-```
-## Business Logic 
+Business Logic
+Users
 
-### Users
+    create users this will create a new user with a random username
 
-1. **create users** 
-    this will create a new user with a random username
+Posts
 
-### Posts
+    create post this will create a new post, required fields are
+        username (the author of this post)
+        title
+        body
 
-1. **create post**
-    this will create a new post, required fields are 
-    - username (the author of this post)
-    - title
-    - body 
+    show all posts list all existing posts, we should have following filtering support
+        filter by username
+        filter by query contained in title (search by title)
 
-2. **show all posts**
-    list all existing posts, we should have following filtering support
+    edit posts TBD
 
-    - filter by username
-    - filter by query contained in title (search by title)
+    delete posts TBD
 
-3. **edit posts** `TBD`
+Comments
 
-4. **delete posts** `TBD` 
+    show all comments (of a user)
 
-### Comments 
+    show all comments (under a post)
 
-1. **show all comments (of a user)**
+    add a comment
 
-2. **show all comments (under a post)**
+API Documentation
+users
 
-3. **add a comment**
-
-
-## API Documentation 
-
-### `users` 
-
-1. `POST /users` 
+    POST /users
 
 Creates a new user with random username and an user id
 
-2. `GET /users/{userid}`
+    GET /users/{userid}
 
 Get an user with a given user id
 
-3. `GET /users/{username}`
+    GET /users/{username}
 
 Get an user with a given username
+posts
 
+    GET /posts
 
-### `posts` 
+Get all posts by everyone
 
-1. `GET /posts` 
+    POST /posts
 
-Get all posts by everyone 
+Create a new post. Required fields in body -
 
-2. `POST /posts` 
-
-Create a new post. 
-Required fields in body - 
-
-```
 userId=
 title=
 body=
-```
