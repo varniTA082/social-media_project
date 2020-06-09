@@ -23,12 +23,9 @@ async function findAllPosts(query) {
     return posts
 }
 
-
-
 module.exports = {
     createNewPost,
-    findAllPosts,
-
+    findAllPosts
 }
 
 /* Test Code */
@@ -53,5 +50,6 @@ async function task() {
     console.log(`${p.title}\nauthor: ${p.user.username}\n${p.body}\n==========\n`)
   }
 }
+
 task()
 */
