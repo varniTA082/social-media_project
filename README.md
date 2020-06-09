@@ -1,8 +1,13 @@
-Social Media Sample Project
-Database Setup
+# Social Media Sample Project
 
+
+## Database Setup
+
+```shell
 $ mysql -u root
+```
 
+```mysql
 create database cbsocialmediadb;
 
 create user cbsocialuser identified with mysql_native_password by 'cbsocialpass';
@@ -10,10 +15,13 @@ create user cbsocialuser identified with mysql_native_password by 'cbsocialpass'
 grant all privileges on cbsocialmediadb.*  to cbsocialuser;
 
 flush privileges;
+```
 
-Project Structure
-Backend (Server)
+## Project Structure
 
+### Backend (Server)
+
+```shell
 src
 ├───controllers		# functions to connect routes to db operations
 ├───db			# db connection and model definitions
@@ -21,8 +29,12 @@ src
 ├───routes		# express middlewares (route wise)				
 └───utils		# username generation function
 
-Frontend (Client Side Code)
+```
 
+
+### Frontend (Client Side Code)
+
+```shell
 src/public
 ├── app                                     # our own frontend js code
 │   └── common.js
@@ -40,58 +52,71 @@ src/public
     ├── jquery-3.4.1.js
     └── popper.js
 
-Business Logic
-Users
+```
+## Business Logic 
 
-    create users this will create a new user with a random username
+### Users
 
-Posts
+1. **create users** 
+    this will create a new user with a random username
 
-    create post this will create a new post, required fields are
-        username (the author of this post)
-        title
-        body
+### Posts
 
-    show all posts list all existing posts, we should have following filtering support
-        filter by username
-        filter by query contained in title (search by title)
+1. **create post**
+    this will create a new post, required fields are 
+    - username (the author of this post)
+    - title
+    - body 
 
-    edit posts TBD
+2. **show all posts**
+    list all existing posts, we should have following filtering support
 
-    delete posts TBD
+    - filter by username
+    - filter by query contained in title (search by title)
 
-Comments
+3. **edit posts** `TBD`
 
-    show all comments (of a user)
+4. **delete posts** `TBD` 
 
-    show all comments (under a post)
+### Comments 
 
-    add a comment
+1. **show all comments (of a user)**
 
-API Documentation
-users
+2. **show all comments (under a post)**
 
-    POST /users
+3. **add a comment**
+
+
+## API Documentation 
+
+### `users` 
+
+1. `POST /users` 
 
 Creates a new user with random username and an user id
 
-    GET /users/{userid}
+2. `GET /users/{userid}`
 
 Get an user with a given user id
 
-    GET /users/{username}
+3. `GET /users/{username}`
 
 Get an user with a given username
-posts
 
-    GET /posts
 
-Get all posts by everyone
+### `posts` 
 
-    POST /posts
+1. `GET /posts` 
 
-Create a new post. Required fields in body -
+Get all posts by everyone 
 
+2. `POST /posts` 
+
+Create a new post. 
+Required fields in body - 
+
+```
 userId=
 title=
 body=
+```
