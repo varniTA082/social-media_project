@@ -9,6 +9,19 @@ async function createNewPost(userId, title, body) {
 
     return post
 }
+async function getPostsbyUsername(id) {
+    return await Posts.findAll({
+        where: { userId: id },
+        include: [Users]
+    })
+}
+
+async function getPostsbyPid(Sid) {
+    return await Posts.findAll({
+        where: { id: Sid },
+        include: [Users]
+    })
+}
 
 /**
  * showAllPosts({username: ''})
@@ -25,7 +38,9 @@ async function findAllPosts(query) {
 
 module.exports = {
     createNewPost,
-    findAllPosts
+    getPostsbyUsername,
+    findAllPosts,
+    getPostsbyPid
 }
 
 /* Test Code */
@@ -50,6 +65,5 @@ async function task() {
     console.log(`${p.title}\nauthor: ${p.user.username}\n${p.body}\n==========\n`)
   }
 }
-
 task()
 */

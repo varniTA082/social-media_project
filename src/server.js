@@ -17,8 +17,8 @@ app.use('/api/comments', commentsRoute)
 
 db.sync()
     .then(() => {
-        app.listen(4444, () => {
-            console.log(`started on http://localhost:4444`)
+        app.listen(4443, () => {
+            console.log(`started on http://localhost:4443`)
         })
     })
     .catch((err) => {
